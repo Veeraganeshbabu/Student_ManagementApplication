@@ -1,0 +1,31 @@
+{% extends 'admin_navbar.html' %}
+{% load static %}
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div><img style="background-size: cover; background-position: center; background-attachment: fixed; margin-bottom: -380px; height: 550px; width: 100%;"  src="{% static 'student-management.jpg' %}" alt="My image"></div>
+<center><h1 style="color: forestgreen"> update Student Details Here</h1></center>
+<form action="./update/" method="post">
+    {% csrf_token %}
+    <center>
+    <table bgcolor="aqua" class="text-black">
+       <tr><td>Enter StudentId:</td><td><input type="text" name="t1" ></td></tr><tr><td>Enter StudentName:</td><td><input type="text" name="t2" ></td></tr>
+       <tr><td>Enter Phone:</td><td><input type="text" name="t3" ></td></tr>
+       <tr><td>Enter Email:</td><td><input type="text" name="t4" ></td></tr>
+       <tr><td>Enter DateOfBirth:</td><td><input type="text" name="t5" ></td></tr>
+        <tr><td>Enter Graduation:</td><td><input type="text" name="t6" ></td></tr>
+        <tr><td>Enter YearOfPass:</td><td><input type="text" name="t7" ></td></tr>
+        <tr><td>Enter BatchName:</td><td><input type="text" name="t8" ></td></tr>
+        <tr><td colspan="2" align="center"><input style="background-color: green; color: white" type="submit" value="update" ></td></tr>
+    </table>
+        </center>
+</form>
+
+</body>
+</html>
+{% endblock %}

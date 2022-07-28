@@ -1,0 +1,41 @@
+{% extends 'basic.html' %}
+{% load static %}
+{% block title %} Student Management System {% endblock %}
+{% block css %}
+{% endblock %}
+{% block body %}
+<div >
+<Div><img style="background-size: cover; background-position: center; background-attachment: fixed; margin-bottom: -380px; height: 550px; width: 100%;"  src="{% static 'student-management.jpg' %}" alt="My image"></div>
+<br>
+<h1 class=" text-center text-white"><u>Admin Login</u></h1><br>
+    <center>
+<p class=" text-black"><b>Note:</b> Only the admin can login from here.</p></center>
+    <form method="POST"> {% csrf_token %}
+
+    <div class="row">
+        <div class="span2 well col-lg-5" style="margin-left: 600px">
+            <label><i style="font-weight: bold; color: black">Username</i></label>
+            <input type="text" class="form-control-static " name="username" placeholder="Enter Username" required>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="span2 well col-lg-5" style="margin-left: 600px">
+            <label><i style="font-weight: bold; color:black">Password</i></label>
+            <input type="password" class="form-control-static" name="password" placeholder="Enter Password" required>
+        </div>
+    </div><br>
+
+    <button type="submit" class="btn btn-outline-black bg-success" style="margin-left: 720px">Login</button><br>
+
+</div></form>
+
+{% endblock %}
+{% block js %}
+<script>
+    {% if alert %}
+    alert("Invalid Username or Password.")
+    document.location = "/admin_login"
+    {% endif %}
+</script>
+{% endblock %}

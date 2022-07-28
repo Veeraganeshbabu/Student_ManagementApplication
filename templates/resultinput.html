@@ -1,0 +1,30 @@
+{% extends 'admin_navbar.html' %}
+{% load static %}
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body bgcolor="#00ffff">
+<Div><img style="background-size: cover; background-position: center; background-attachment: fixed; margin-bottom: -380px; height: 550px; width: 100%;"  src="{% static 'student-management.jpg' %}" alt="My image"></div>
+<center><h1 style="color: green">Add Student Results Here</h1></center>
+<form action="./insert/" method="get">
+    {% csrf_token %}
+    <center>
+    <table style="color:black">
+       <tr><td>Enter StudentId:</td><td><input type="text" name="s1" ></td></tr>
+        <tr><td>Enter StudentName:</td><td><input type="text" name="s2" ></td></tr>
+       <tr><td>Enter Subject1:</td><td><input type="text" name="s3" ></td></tr>
+       <tr><td>Enter Subject2:</td><td><input type="text" name="s4" ></td></tr>
+       <tr><td>Enter Subject3:</td><td><input type="text" name="s5" ></td></tr>
+        <tr><td>Enter Subject4:</td><td><input type="text" name="s6" ></td></tr>
+        <tr><td>Enter Subject5:</td><td><input type="text" name="s7" ></td></tr>
+        <tr><td>Enter Subject6:</td><td><input type="text" name="s8" ></td></tr>
+        <tr><td>Enter Total:</td><td><input type="text" name="s9" ></td></tr>
+        <tr><td colspan="2" align="center"><input style="background-color: green; color: white" type="submit" value="Add"></td></tr>
+    </table>
+        </center>
+</form>
+{% endblock %}
