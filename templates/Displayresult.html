@@ -8,16 +8,15 @@
 </head>
 <body bgcolor="#add8e6">
 <center><h1>Student Results</h1></center>
-<!--<Div><img style="background-size: cover; background-position: center; background-attachment: fixed; margin-bottom: -380px; height: 550px; width: 100%;"  src="{% static 'student-management.jpg' %}" alt="My image"></div>-->
 <form class="form-inline my-2 my-lg-0 " align="center" style="background-position: right">
     <input class="form-control mr-sm-2 " style="background-color: snow" name="q" type="search" placeholder="Search" aria-label="Search">
     <button class="btn btn-outline-success my-2 my-sm-0 " style="background-color: lightgreen" type="submit">Search</button>
 </form>
 
 <table border="1"  align="center" bgcolor="#fffaf0" style="border: solid">
-    <tr style="background-color: darkgray"><th>Details </th><th>StudentName</th><th>Subject1</th><th>Subject2</th><th>Subject3</th><th>Subject4</th><th>Subject5</th><th>Subject6</th><th>Total</th></tr>
+    <tr style="background-color: darkgray"><th>StudentId</th><th>StudentName</th><th>Subject1</th><th>Subject2</th><th>Subject3</th><th>Subject4</th><th>Subject5</th><th>Subject6</th><th>Total</th></tr>
     {% for rec in records %}
-    <tr><td>{{rec.Details}}</td><td>{{rec.StudentName}}</td><td>{{rec.Subject1}}</td><td>{{rec.Subject2}}</td><td>{{ rec.Subject3}}</td><td>{{ rec.Subject4}}</td><td>{{ rec.Subject5}}</td><td>{{ rec.Subject6}}</td><td>{{ rec.Total }}</td></tr>
+    <tr><td>{{ rec.Id }} </td><td>  StudentName</td><td>{{ rec.Subject1}}</td><td>{{ rec.Subject2}}</td><td>{{ rec.Subject3}}</td><td>{{ rec.Subject4}}</td><td>{{ rec.Subject5}}</td><td>{{ rec.Subject6}}</td><td>{{ rec.Total }}</td></tr>
     {%  endfor %}
 </table>
 </body>

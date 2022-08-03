@@ -7,6 +7,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import redirect, render,HttpResponse
 from.models import *
 from django.db.models import Q
+
 # Create your views here.
 def index(request):
     return render(request, "index.html")
@@ -60,14 +61,14 @@ class DisplayView(View):
 
 class DisplayresultView(View):
     def get(self,request):
-        if 'q' in request.GET:
-            q = request.GET['q']
-            multiple_q = Q(Q(StudentId__icontains=q) | Q(StudentName__icontains=q))
-            qs = Results.objects.filter(multiple_q)
+        if 'r' in request.GET:
+            r = request.GET['r']
+            multiple_r = R(R(StudentId__icontains=r) | R(StudentName__icontains=r))
+            rs = Results.objects.filter(multiple_r)
         else:
-            qs = Results.objects.all()
+            rs = Results.objects.all()
 
-        con_dic={"records":qs}
+        con_dic={"records":rs}
         return render(request,"Displayresult.html",con_dic)
 
 class UpdateInputView(View):
@@ -114,19 +115,19 @@ class ResultInput(View):
 class ResultView(View):
     def get(self,request):
 
-        Student_Id = int(request.GET["s1"])
-        Student_Name = request.GET["s2"]
+        Student_Id = int(request.GET["t1"])
+        Student_Name = request.GET["t2"]
         Id = Details.objects.get(StudentId=Student_Id)
         Name = Details.objects.get(StudentName=Student_Name)
-        Subject1 = request.GET["s3"]
-        Subject2 = request.GET["s4"]
-        Subject3 = request.GET["s5"]
-        Subject4 = request.GET["s6"]
-        Subject5 = request.GET["s7"]
-        Subject6 = request.GET["s8"]
-        Total = request.GET["s9"]
+        Subject1 = request.GET["t3"]
+        Subject2 = request.GET["t4"]
+        Subject3 = request.GET["t5"]
+        Subject4 = request.GET["t6"]
+        Subject5 = request.GET["t7"]
+        Subject6 = request.GET["t8"]
+        Total = request.GET["t9"]
 
-        s = Results(Subject1=Subject1,Subject2=Subject2,Subject3=Subject3,Subject4=Subject4,Subject5=Subject5,Subject6=Subject6,Total=Total)
+        s = Results(StudentName=Student_Name,Subject1=Subject1,Subject2=Subject2,Subject3=Subject3,Subject4=Subject4,Subject5=Subject5,Subject6=Subject6,Total=Total)
         s.save()
         resp=HttpResponse("Student result inserted successfully")
         return resp
