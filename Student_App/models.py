@@ -15,7 +15,7 @@ class Details(models.Model):
     def __str__(self):
         return self.StudentName
 class Results(models.Model):
-    Details = models.ForeignKey(Details,on_delete=models.CASCADE)
+    Details= models.ForeignKey(Details,on_delete=models.CASCADE)
     StudentName= models.CharField(max_length=100,null=True)
     Subject1= models.CharField(max_length=100,null=True)
     Subject2 = models.CharField(max_length=100, null=True)
